@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "env": {
+                "PORT": "3000",
+                "TAG": "1.0.0",
+                "MONGO_CONNECTION": "mongodb://shinodalabs:Ss14%40D500@evolve-shard-00-00-pbtx8.azure.mongodb.net:27017,evolve-shard-00-01-pbtx8.azure.mongodb.net:27017,evolve-shard-00-02-pbtx8.azure.mongodb.net:27017/test?ssl=true&replicaSet=Evolve-shard-0&authSource=admin&retryWrites=true&w=majority",
+            },
+            "program": "${workspaceFolder}\\bin\\server.js"
+        }
+    ]
+}
