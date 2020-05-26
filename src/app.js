@@ -10,13 +10,16 @@ const app = express()
 mongoose.connect(config.connectionString, { useNewUrlParser: true })
 
 // Models
+const User = require('./models/user')
 
 // Routes
 const indexRoute = require('./routes/index')
+const userRoute = require('./routes/user')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', indexRoute)
+app.use('/user', userRoute)
 
 module.exports = app;
