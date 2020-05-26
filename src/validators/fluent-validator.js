@@ -11,7 +11,7 @@ ValidationContract.prototype.isRequired = (value, message) => {
 };
 
 ValidationContract.prototype.isNotZero = (value, message) => {
-  if (!value || value <= 0) errors.push({ message: message});
+  if (!value || value <= 0) errors.push({ message: message });
 }
 
 ValidationContract.prototype.hasMinLen = (value, min, message) => {
