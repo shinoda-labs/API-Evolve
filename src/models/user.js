@@ -31,6 +31,11 @@ const schema = new Schema({
     image: {
         type: String
     },
+    permission: {
+        type: String,
+        enum: ['USER', 'ADMIN'],
+        default: 'USER'
+    },
     created_at: {
         type: Date,
         required: true,
