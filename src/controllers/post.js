@@ -19,5 +19,40 @@ exports.newPost = async (req, res, next) => {
     } catch (e) {
         res.status(500).send({ message: 'Falha ao criar o post.', error: e })
     }
+}
 
+exports.getPosts = async (req, res, next) => {
+    try {
+        let posts = await repository.getPosts()
+        res.status(200).send({ data: posts, count: posts.length || 0 })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
+}
+
+exports.getLikes = async (req, res, next) => {
+    try {
+        let likes = await repository.getLikes(req.params.id)
+        res.status(200).send({ data: likes, count: likes.length || 0 })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
+}
+
+exports.getComments = async (req, res, next) => {
+    try {
+        let comments = await repository.getComments(req.params.id)
+        res.status(200).send({ data: comments, count: comments.length || 0 })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
+}
+
+exports.getShares = async (req, res, next) => {
+    try {
+        let shares = await repository.getShares(req.params.id)
+        res.status(200).send({ data: shares, count: shares.length || 0 })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
 }
