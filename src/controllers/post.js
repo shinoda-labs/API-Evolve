@@ -56,3 +56,52 @@ exports.getShares = async (req, res, next) => {
         res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
     }
 }
+
+exports.like = async (req, res, next) => {
+    let contract = new ValidationContract()
+    contract.isRequired(req.body.user, 'Informe o usuário para dar like no post.')
+
+    if (!contract.isValid()) {
+        res.status(400).send(contract.errors()).end()
+        return
+    }
+
+    try {
+        await repository.like(req.params.id, req.body)
+        res.status(200).send({ message: 'Post curtido com sucesso.' })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
+}
+
+exports.share = async (req, res, next) => {
+    let contract = new ValidationContract()
+    contract.isRequired(req.body.user, 'Informe o usuário para compartilhar este post.')
+
+    if (!contract.isValid()) {
+        res.status(400).send(contract.errors()).end()
+    }
+
+    try {
+        await repository.share(req.params.id, req.body)
+        res.status(200).send({ message: 'Post compartilhado com sucesso.' })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
+}
+
+exports.comment = async (req, res, next) => {
+    let contract = new ValidationContract()
+    contract.isRequired(req.body.description, 'Insira um comentário para comentar o post.')
+
+    if (!contract.isValid()) {
+        res.status(400).send(contract.errors()).end()
+    }
+
+    try {
+        await repository.comment(req.params.id, req.body)
+        res.status(200).send({ message: 'Post comentado com sucesso.' })
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao processar sua requisição', error: e })
+    }
+}

@@ -27,3 +27,24 @@ exports.getShares = async (id) => {
     return Post.findOne({ _id: id }, 'shares').
         populate('shares.user', 'username image')
 }
+
+exports.like = async (id, data) => {
+    return Post.findByIdAndUpdate(
+        { _id: id },
+        { $push: { likes: { user: data.user } } },
+        { "new": true })
+}
+
+exports.share = async (id, data) => {
+    return Post.findByIdAndUpdate(
+        { _id: id },
+        { $push: { shares: { user: data.user } } },
+        { "new": true })
+}
+
+exports.comment = async (id, data) => {
+    return Post.findByIdAndUpdate(
+        { _id: id },
+        { $push: { comments: { description: data.description } } },
+        { "new": true })
+}
