@@ -17,7 +17,7 @@
                 "MONGO_CONNECTION": "mongodb://shinodalabs:Ss14%40D500@evolve-shard-00-00-pbtx8.azure.mongodb.net:27017,evolve-shard-00-01-pbtx8.azure.mongodb.net:27017,evolve-shard-00-02-pbtx8.azure.mongodb.net:27017/test?ssl=true&replicaSet=Evolve-shard-0&authSource=admin&retryWrites=true&w=majority",
                 "SALT_KEY": "0708eeda83d8df010fe7a0d8c41d51a8" // apievolve
             },
-            "program": "${workspaceFolder}\\bin\\server.js"
+            "program": "${workspaceFolder}\\server.js"
         }
     ]
 }

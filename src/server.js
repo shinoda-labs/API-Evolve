@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('../src/app')
+const app = require('./app')
 const http = require('http')
 const debug = require('debug')('shinodalabs:server')
 
